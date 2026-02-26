@@ -4,9 +4,11 @@ signal pv_change(nouvelle_valeur)
 
 @export var vitesse_marche = 400.0
 @export var vitesse_course = 800.0
+#variables pour gérer la faim en fonction de l'activité
 @export var vitesse_faim_marche = -0.5
 @export var vitesse_faim_course = -1
 @export var vitesse_faim = -0.2
+#affaiblissement quand la faim n'est pas satisfaite
 @export var vitesse_affaiblissement = -0.2
 var cible = Vector2.ZERO #l'endroit ou on veut aller
 var vitesse_actuelle = 400.0
@@ -14,6 +16,7 @@ var objet_a_ramasser = null
 var distance_interaction = 50.0
 
 @onready var nav_agent = $NavigationAgent2D
+@onready var camera = $Camera2D
 
 func _ready():
 	#au début la cible est là ou se trouve le joueur
@@ -31,7 +34,17 @@ func _input(event):
 				vitesse_actuelle = vitesse_course
 			else : 
 				vitesse_actuelle = vitesse_marche
-
+	if event.is_action_pressed("zoom_avant"):
+		camera.zoom -=Vector2(0.1 , 0.1)
+	if event.is_action_pressed("zoom_arriere"):
+		camera.zoom +=Vector2(0.1 , 0.1)
+	camera.zoom.x = clamp(camera.zoom.x, 0.2,0.5)
+	camera.zoom.y = clamp(camera.zoom.x,0.2,0.5)
+			
+		
+	print("L'action V a été détectée !")
+		
+		
 		
 		
 
