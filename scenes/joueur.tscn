@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dffjdagr2i0u7"]
+
+[ext_resource type="Script" uid="uid://b3wl0575tifu2" path="res://scripts/joueur.gd" id="1_uj1k6"]
+[ext_resource type="Texture2D" uid="uid://bexsnvjt2qsoj" path="res://assets/icon.svg" id="2_2y66e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbxmr"]
+size = Vector2(114, 116)
+
+[node name="Joueur" type="CharacterBody2D" unique_id=1584565168 groups=["joueur"]]
+rotation = -1.6029474
+script = ExtResource("1_uj1k6")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1396148611]
+path_desired_distance = 10.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1231757610]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=576968504]
+texture = ExtResource("2_2y66e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=404365714]
+shape = SubResource("RectangleShape2D_pbxmr")

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://djmkjiyc176p6"]
+
+[ext_resource type="Script" uid="uid://k2qrnexfjxr" path="res://scripts/global.gd" id="1_e0an3"]
+[ext_resource type="PackedScene" uid="uid://chaucmn1ec8up" path="res://scenes/poisson.tscn" id="6_iw27f"]
+[ext_resource type="PackedScene" uid="uid://ch8ka0dhcevw" path="res://scenes/rocher.tscn" id="7_71pa8"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_71pa8"]
+vertices = PackedVector2Array(1075.5703, -836.6328, 958.21875, 1060.5, -161, -413, -161, -674, -1173.8984, 1044.5391, -409, -301, -1091.0078, -855.40625, -425, -674, -425, -562, -673, -562, -673, -301, -409, -413)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 0, 3, 7), PackedInt32Array(7, 8, 9, 6), PackedInt32Array(4, 6, 9, 10), PackedInt32Array(5, 11, 2), PackedInt32Array(4, 10, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1158, -926, 1150, -906, 1024, 1131, -1247, 1114)])
+agent_radius = 70.0
+
+[node name="map" type="Node2D" unique_id=1440887052]
+script = ExtResource("1_e0an3")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1434561684]
+navigation_polygon = SubResource("NavigationPolygon_71pa8")
+
+[node name="Node2D2" parent="NavigationRegion2D" unique_id=2145477721 instance=ExtResource("7_71pa8")]
+position = Vector2(-293, -545)
+
+[node name="Node2D" parent="NavigationRegion2D" unique_id=762389476 instance=ExtResource("7_71pa8")]
+position = Vector2(-541, -433)
+
+[node name="Area2D" parent="." unique_id=1297018297 instance=ExtResource("6_iw27f")]
+position = Vector2(170, -33)
+
+[node name="Area2D2" parent="." unique_id=1833862172 instance=ExtResource("6_iw27f")]
+position = Vector2(-432, 94)
+
+[node name="Area2D3" parent="." unique_id=1356147853 instance=ExtResource("6_iw27f")]
+position = Vector2(-286, -274)
