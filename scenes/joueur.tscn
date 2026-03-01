@@ -1,25 +1,105 @@
 [gd_scene format=3 uid="uid://dffjdagr2i0u7"]
 
 [ext_resource type="Script" uid="uid://b3wl0575tifu2" path="res://scripts/joueur.gd" id="1_uj1k6"]
-[ext_resource type="Texture2D" uid="uid://bexsnvjt2qsoj" path="res://assets/icon.svg" id="2_2y66e"]
+[ext_resource type="Texture2D" uid="uid://bc1n47g3675ld" path="res://assets/inuit 3.png" id="2_uj1k6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbxmr"]
-size = Vector2(114, 116)
+size = Vector2(280, 282)
+
+[sub_resource type="Animation" id="Animation_uj1k6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_dga13"]
+resource_name = "course"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.16666667, 0.4, 0.6),
+"transitions": PackedFloat32Array(1.035265, 1, 1),
+"update": 0,
+"values": [8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_2y66e"]
+resource_name = "idle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ivebw"]
+resource_name = "marche"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.33333334, 0.56666666, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dga13"]
+_data = {
+&"RESET": SubResource("Animation_uj1k6"),
+&"course": SubResource("Animation_dga13"),
+&"idle": SubResource("Animation_2y66e"),
+&"marche": SubResource("Animation_ivebw")
+}
 
 [node name="Joueur" type="CharacterBody2D" unique_id=1584565168 groups=["joueur"]]
-rotation = -1.6029474
 script = ExtResource("1_uj1k6")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1396148611]
-path_desired_distance = 10.0
+radius = 30.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1231757610]
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=576968504]
-texture = ExtResource("2_2y66e")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=404365714]
+position = Vector2(-3, 1)
 shape = SubResource("RectangleShape2D_pbxmr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1196408329]
+position = Vector2(-0.9999995, 12.468323)
+rotation = -1.5707964
+scale = Vector2(0.9302112, 1)
+texture = ExtResource("2_uj1k6")
+hframes = 4
+vframes = 3
+frame = 1
+region_rect = Rect2(290, 402.5, 172, 6)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=706069105]
+libraries/ = SubResource("AnimationLibrary_dga13")

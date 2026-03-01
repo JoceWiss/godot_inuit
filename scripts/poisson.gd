@@ -1,6 +1,8 @@
 extends Area2D
 
 @export var apporte_faim : float = 20.0
+func _ready():
+	rotation = randf_range(0,TAU)
 
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed:

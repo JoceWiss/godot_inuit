@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hbcsegbx2bpd"]
 
-[ext_resource type="Script" uid="uid://6yxja8v71esq" path="res://scenes/main.gd" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://6yxja8v71esq" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bda31lxwko5q7" path="res://scenes/hud.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://djmkjiyc176p6" path="res://scenes/map.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dffjdagr2i0u7" path="res://scenes/joueur.tscn" id="3_tbgi4"]
@@ -11,5 +11,6 @@ script = ExtResource("1_jyhfs")
 [node name="CanvasLayer" parent="." unique_id=1633036995 instance=ExtResource("1_sugp2")]
 
 [node name="map" parent="." unique_id=1440887052 instance=ExtResource("2_jyhfs")]
+position = Vector2(292, -75)
 
 [node name="Joueur" parent="." unique_id=1584565168 instance=ExtResource("3_tbgi4")]
