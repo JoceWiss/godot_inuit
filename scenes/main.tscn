@@ -14,3 +14,9 @@ script = ExtResource("1_jyhfs")
 position = Vector2(292, -75)
 
 [node name="Joueur" parent="." unique_id=1584565168 instance=ExtResource("3_tbgi4")]
+constitution = 20
+dexterite = 10
+endurance = 10
+force = 10
+intelligence = 10
+sagesse = 10

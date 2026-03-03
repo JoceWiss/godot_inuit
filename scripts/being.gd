@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Being
 @export_group("pv")
-@export var pv_max : float = 100.0
+@export var pv_max : float = 100
 signal pv_mise_a_jour(valeur)
 
 var pv_actuels : float = 100.0:

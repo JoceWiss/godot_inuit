@@ -39,9 +39,8 @@ var faim_actuelle: float = 100.0:
 
 
 func _ready():
-	self.pv_actuels = self.pv_max
-	self.faim_actuelle = self.faim_max
-
+	faim_actuelle = faim_max
+	super()
 
 func _physics_process(delta: float) -> void:
 	if vitesse_actuelle == vitesse_course:

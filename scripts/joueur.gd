@@ -1,11 +1,11 @@
 extends Human
 
-
 func _ready():
 	#au début la cible est là ou se trouve le joueur
 	cible = position
-	self.pv_actuels = self.pv_max
-	self.faim_actuelle = self.faim_max
+	print("mes pv =", self.pv_max)
+	super()
+
 	
 	
 func _input(event):
