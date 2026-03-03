@@ -19,6 +19,5 @@ signal etat_vie_change(est_vivant)
 func _ready():
 	pv_actuels = pv_max
 func mourir():
-	print(name, "a succombé")
-		
+	pass		
 		
