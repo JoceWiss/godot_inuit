@@ -4,8 +4,8 @@ extends Human
 func _ready():
 	#au début la cible est là ou se trouve le joueur
 	cible = position
-	pv_actuels = pv_max
-	faim_actuelle = faim_max
+	self.pv_actuels = self.pv_max
+	self.faim_actuelle = self.faim_max
 	
 	
 func _input(event):
@@ -31,9 +31,7 @@ func _input(event):
 func _physics_process(delta: float) -> void:
 	super(delta)
 	
-
-	
-	#ramassage d'objets
+	#logique de déplacement
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if objet_a_ramasser == null :
 			cible = get_global_mouse_position()
@@ -75,4 +73,5 @@ func finaliser_ramassage(objet):
 			print("Poisson ramassé !")
 			objet_a_ramasser.queue_free()
 			objet_a_ramasser = null
+
 		

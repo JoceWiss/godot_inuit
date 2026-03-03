@@ -1,7 +1,6 @@
-extends Being
+extends Creature
 class_name Human
 signal faim_mise_a_jour(valeur)
-signal pv_mise_a_jour(valeur)
 @export_group("vitesse")
 @export var vitesse_marche = 400.0
 @export var vitesse_course = 800.0
@@ -12,35 +11,26 @@ signal pv_mise_a_jour(valeur)
 @export var vitesse_faim = -0.2
 #affaiblissement quand la faim n'est pas satisfaite
 @export var vitesse_affaiblissement = -0.2
-var cible = Vector2.ZERO #l'endroit ou on veut aller
 
 #pathfinding
 @onready var nav_agent = $NavigationAgent2D
+
 #zoom
 @onready var camera = $Camera2D
 @onready var animation_player = $Sprite2D/AnimationPlayer
 @onready var sprite_2d = $Sprite2D
-
-@export_group("signes_vitaux")
-@export var pv_max = 100
+@export_group("signes vitaux")
 @export var faim_max = 100
 
-@export_group("caracteristiques")
-@export var dexterite : int
-@export var endurance : int
-@export var force : int
+@export_group ("compétences humaines")
 @export var orientation : int
 
-var vitesse_actuelle = 400.0
-var objet_a_ramasser = null
-var distance_interaction = 200.0
+var cible = Vector2.ZERO #l'endroit ou on veut aller
+var vitesse_actuelle = 400.0 #vtesse en cours
+var objet_a_ramasser = null #objet à ramasser null jusque preuve du contraire
+var distance_interaction = 200.0 #distance à laquelle on va s'arrêter pour prendre un objet
 
-var pv_actuels : float = 100.0:
-	set(valeur):
-		pv_actuels=clamp(valeur,0,pv_max)
-		pv_mise_a_jour.emit(pv_actuels)
-
-
+#setter de faim
 var faim_actuelle: float = 100.0:
 	set(valeur):
 		faim_actuelle = clamp(valeur,0,faim_max)
@@ -49,8 +39,8 @@ var faim_actuelle: float = 100.0:
 
 
 func _ready():
-	self.pv_actuels = pv_max
-	self.faim_actuelle = faim_max
+	self.pv_actuels = self.pv_max
+	self.faim_actuelle = self.faim_max
 
 
 func _physics_process(delta: float) -> void:

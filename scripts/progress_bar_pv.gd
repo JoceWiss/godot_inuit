@@ -8,3 +8,6 @@ func _ready():
 	
 func _on_pv_changee(nouvelle_valeur):
 	value = nouvelle_valeur
+	
+	
+	
