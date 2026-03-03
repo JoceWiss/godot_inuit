@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chaucmn1ec8up"]
 
-[ext_resource type="Script" uid="uid://b6h17g8ykngf3" path="res://scripts/poisson.gd" id="1_sfc3f"]
+[ext_resource type="Script" uid="uid://b6h17g8ykngf3" path="res://scripts/morue_polaire.gd" id="1_sfc3f"]
 [ext_resource type="Shader" uid="uid://x08anb845k8f" path="res://shaders/contour_poisson.gdshader" id="2_vjfo3"]
 [ext_resource type="Texture2D" uid="uid://fxxlfyidvuh2" path="res://assets/poisson.png" id="3_lbjbv"]
 

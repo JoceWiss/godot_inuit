@@ -62,11 +62,7 @@ func _physics_process(delta: float) -> void:
 	if self.faim_actuelle <= 0:
 		self.pv_actuels += vitesse_affaiblissement*delta
 				
-func calcul_modificateur(nom_stat: String) -> int:
-	var score = get(nom_stat)
-	if score == null:
-		score = 0
-	return (score - 10) / 2
+
 
 	
 		

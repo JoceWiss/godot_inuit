@@ -1,8 +1,10 @@
 extends Area2D
 
+@export var poids = randi_range(15,180)
 @export var apporte_faim : float = 20.0
 func _ready():
 	rotation = randf_range(0,TAU)
+	print(poids)
 
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed:
@@ -23,6 +25,7 @@ func _on_mouse_exited() -> void:
 	# On remet l'épaisseur à 0 pour faire disparaître le contour
 	$Sprite2D.material.set_shader_parameter("line_thickness", 0.0)
 '''
+#autre option plus "simple" que le shader
 func _on_mouse_entered() -> void:
 	modulate = Color(1.5,1.5,1.5)
 
