@@ -1,7 +1,8 @@
-extends Area2D
+extends Objet
 
 @export var poids = randi_range(15,180)
 @export var apporte_faim : float = 20.0
+
 func _ready():
 	rotation = randf_range(0,TAU)
 	print(poids)

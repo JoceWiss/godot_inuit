@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Being
+class_name Etre
 @export_group("pv")
 @export var pv_max : float = 100
 signal pv_mise_a_jour(valeur)

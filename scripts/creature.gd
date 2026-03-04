@@ -1,4 +1,4 @@
-extends Being
+extends Etre
 class_name Creature
 
 @export_group("caracteristiques vivant")

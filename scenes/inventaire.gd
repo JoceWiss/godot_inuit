@@ -11,3 +11,6 @@ var slots_equipement : Dictionary = {
 	"jambes": null,
 	"pieds": null,
 }
+
+
+	
