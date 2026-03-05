@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://djmkjiyc176p6"]
 
-[ext_resource type="Script" uid="uid://k2qrnexfjxr" path="res://scripts/global.gd" id="1_e0an3"]
-[ext_resource type="PackedScene" uid="uid://chaucmn1ec8up" path="res://scenes/poisson.tscn" id="6_iw27f"]
 [ext_resource type="PackedScene" uid="uid://ch8ka0dhcevw" path="res://scenes/rocher.tscn" id="7_71pa8"]
+
+[sub_resource type="GDScript" id="GDScript_4xfga"]
+script/source = "extends Node
+
+# On crée un signal pour prévenir la barre de vie quand la faim change
+#test
+"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71pa8"]
 vertices = PackedVector2Array(2765.539, -1616.5625, 2807.3828, 2403.25, 2229.2266, 2385.4531, 1485, 584, 1485, -379, -1925.8516, -1634.4219, 232, -379, -457, -732, 232, 584, -457, 231, -1710, -732, -1922.1328, 2257.539, -1710, 231)
@@ -18,7 +23,7 @@ colors = PackedColorArray(0.7033898, 0.7033898, 0.7033898, 1, 0, 0, 0, 1, 1, 1, 
 gradient = SubResource("Gradient_gldc4")
 
 [node name="map" type="Node2D" unique_id=1440887052]
-script = ExtResource("1_e0an3")
+script = SubResource("GDScript_4xfga")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1434561684]
 position = Vector2(112, 54)
@@ -29,15 +34,6 @@ position = Vector2(849, 98)
 
 [node name="Node2D" parent="NavigationRegion2D" unique_id=762389476 instance=ExtResource("7_71pa8")]
 position = Vector2(-1093, -255)
-
-[node name="Area2D" parent="." unique_id=1297018297 instance=ExtResource("6_iw27f")]
-position = Vector2(487, 595)
-
-[node name="Area2D2" parent="." unique_id=1833862172 instance=ExtResource("6_iw27f")]
-position = Vector2(-788, 478)
-
-[node name="Area2D3" parent="." unique_id=1356147853 instance=ExtResource("6_iw27f")]
-position = Vector2(1632, 427)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1183906713]
 z_index = -3

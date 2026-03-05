@@ -1,6 +1,5 @@
 extends Etre
 class_name Creature
-
 @export_group("caracteristiques vivant")
 @export var constitution : int
 @export var dexterite : int
@@ -20,10 +19,11 @@ var mod_force : int:
 	get: return calcul_modificateur("force")
 
 func _ready():
+	super()
 	var bonus_pv = mod_constitution*10
 	pv_max += bonus_pv
 	print(pv_max)
-	super()
+	pv_actuels = pv_max
 func calcul_modificateur(nom_stat: String) -> int:
 	var score = get(nom_stat)
 	if score == null:

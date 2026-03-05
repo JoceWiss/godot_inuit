@@ -1,5 +1,6 @@
 extends Node2D
 
+
 func _ready():
 	# C'est ici que tu initialises ton jeu
 	print("Bienvenue dans le Grand Nord !")

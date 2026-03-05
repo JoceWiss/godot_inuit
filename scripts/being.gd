@@ -4,7 +4,7 @@ class_name Etre
 @export var pv_max : float = 100
 signal pv_mise_a_jour(valeur)
 
-var pv_actuels : float = 100.0:
+var pv_actuels : float = 100:
 	set(valeur):
 		pv_actuels = clamp(valeur,0,pv_max)
 		pv_mise_a_jour.emit(pv_actuels)

@@ -2,9 +2,9 @@ extends Human
 
 func _ready():
 	#au début la cible est là ou se trouve le joueur
-	cible = position
-	print("mes pv =", self.pv_max)
 	super()
+	cible = position
+	print("mes pv =", pv_max)
 
 	
 	
