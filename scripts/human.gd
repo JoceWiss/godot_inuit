@@ -1,6 +1,7 @@
 extends Creature
 class_name Human
 signal faim_mise_a_jour(valeur)
+signal capacite_emport_mise_a_jour(valeur)
 @export_group("vitesse")
 @export var vitesse_marche = 400.0
 @export var vitesse_course = 800.0
@@ -29,9 +30,6 @@ signal faim_mise_a_jour(valeur)
 
 var inventaire : Inventaire
 
-#poids
-var capacite_emport = (force/2)**2
-var poids_total
 
 #Ralentissement
 var cible = Vector2.ZERO #l'endroit ou on veut aller
@@ -56,10 +54,19 @@ func _ready():
 	
 	super()
 
+func calculer_modificateur_vitesse() -> float :
+	var capacite_emport = (force/2.0)**2
+	var p = inventaire.poids_total
+	if capacite_emport <= 0: return 0.1
+	return exp(-(p/capacite_emport))
+
+	
+	
+
 func _physics_process(delta: float) -> void:
-	if vitesse_actuelle == vitesse_course:
+	if vitesse_actuelle >= vitesse_marche:
 		animation_player.play("course")
-	if vitesse_actuelle == vitesse_marche:
+	if vitesse_actuelle <= vitesse_marche:
 		animation_player.play("marche")
 		#système de faim
 	if velocity.length() < 5:
@@ -98,7 +105,7 @@ func lacher_objet(objet: Objet, sac_source: Objet = null):
 		push_error("ERREUR : Le nœud " + name + " essaie de lâcher un objet mais sa variable est vide !")
 		return
 	inventaire.retirer_objet(objet, sac_source)
-	 
+	  
 	var instance = objet_au_sol_scene.instantiate()
 	var dossier_objet = get_parent().get_node("objet_au_sol")
 	dossier_objet.add_child(instance)

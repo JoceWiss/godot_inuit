@@ -2,6 +2,9 @@ extends Human
 
 
 func _ready():
+	#initalisation du niveau de zoom
+	camera.zoom = Vector2(0.3,0.3)
+
 	#au début la cible est là ou se trouve le joueur
 	super()
 	cible = position
@@ -17,13 +20,15 @@ func _ready():
 func _input(event):
 	#déplacements
 	if event is  InputEventMouseButton:
+		var mod_vitesse = calculer_modificateur_vitesse()
+		print(mod_vitesse)
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed : 
 			cible = get_global_mouse_position()
 			if event.double_click:
-				vitesse_actuelle = vitesse_course
+				vitesse_actuelle = vitesse_course * mod_vitesse
 
 			else : 
-				vitesse_actuelle = vitesse_marche
+				vitesse_actuelle = vitesse_marche * mod_vitesse
 	#zoom dézoom à la molette
 	var nouveau_zoom = camera.zoom
 	if event.is_action_pressed("zoom_avant"):

@@ -16,10 +16,21 @@ var slots_equipement : Dictionary = {
 
 
 var poids_total : float = 0.0 :
+	get:
+		return calculer_poids_reel()	
 	set(valeur) :
 		poids_total = valeur
 		donner_poids_total.emit(poids_total)
 	
+
+func calculer_poids_reel():
+	var total = 0.0
+	if slots_equipement == null:
+		return 0.0
+	for slot in slots_equipement.values():
+		if slot != null:
+			total += slot.poids
+	return total 	
 func trouver_sac_disponible() :
 	var slots_potentiels = ["dos","main_droite","main_gauche","ceinture"]
 	for nom_slot in slots_potentiels : 
@@ -48,7 +59,9 @@ func ajouter_objet(objet_a_ajouter : Objet) -> bool:
 		inventaire_modifie.emit()
 		return true
 	else : return false
-	
+
+
+
 func retirer_objet(objet: Objet,depuis_le_sac: Objet = null):
 	if depuis_le_sac:
 		depuis_le_sac.contenu.erase(objet)

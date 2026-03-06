@@ -58,11 +58,9 @@ _data = {
 &"marche": SubResource("Animation_ivebw")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbxmr"]
-size = Vector2(280, 282)
-
 [node name="Joueur" type="CharacterBody2D" unique_id=1584565168 groups=["joueur"]]
 script = ExtResource("1_uj1k6")
+force = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1196408329]
 position = Vector2(-0.9999995, 12.468323)
@@ -75,10 +73,6 @@ region_rect = Rect2(290, 402.5, 172, 6)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=706069105]
 libraries/ = SubResource("AnimationLibrary_dga13")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=404365714]
-position = Vector2(-3, 1)
-shape = SubResource("RectangleShape2D_pbxmr")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1396148611]
 radius = 30.0
