@@ -20,3 +20,5 @@ endurance = 10
 force = 10
 intelligence = 10
 sagesse = 10
+
+[node name="objet_au_sol" type="Node2D" parent="." unique_id=273030744]

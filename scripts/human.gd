@@ -25,6 +25,15 @@ signal faim_mise_a_jour(valeur)
 @export_group ("compétences humaines")
 @export var orientation : int
 
+@export var objet_au_sol_scene : PackedScene
+
+var inventaire : Inventaire
+
+#poids
+var capacite_emport = (force/2)**2
+var poids_total
+
+#Ralentissement
 var cible = Vector2.ZERO #l'endroit ou on veut aller
 var vitesse_actuelle = 400.0 #vtesse en cours
 var objet_a_ramasser = null #objet à ramasser null jusque preuve du contraire
@@ -40,6 +49,7 @@ var faim_actuelle: float = 100.0:
 
 func _ready():
 	faim_actuelle = faim_max
+	
 	super()
 
 func _physics_process(delta: float) -> void:
@@ -61,8 +71,31 @@ func _physics_process(delta: float) -> void:
 	if self.faim_actuelle <= 0:
 		self.pv_actuels += vitesse_affaiblissement*delta
 				
+#déplacement pour ramassage d'objet	
+func aller_ramasser(objet):
+	objet_a_ramasser= objet
+	cible = objet.global_position 
+func finaliser_ramassage(objet):
+	if objet_a_ramasser != null	:
+		var distance = global_position.distance_to(objet_a_ramasser.global_position)
+		if distance <= distance_interaction:
+			print("objet ramassé !")
+			var resource = objet_a_ramasser.item_data
+			if inventaire.ajouter_objet(resource):
+				objet_a_ramasser.queue_free()
+				objet_a_ramasser = null
+				cible = global_position
+			else: print("inventaire plein")
 
-
+func lacher_objet(objet: Objet, sac_source: Objet = null):
+	inventaire.retirer_objet(objet, sac_source)
+	 
+	var instance = objet_au_sol_scene.instantiate()
+	var dossier_objet = get_parent().get_node("objet_au_sol")
+	dossier_objet.add_child(instance)
+	instance.item_data = objet
+	instance.global_position = global_position + Vector2(50,0)
+	
 	
 		
 	
