@@ -7,6 +7,7 @@ extends PanelContainer
 @onready var bouton_retour = $MarginContainer/VBoxContainer/BoutonRetour
 @onready var titre_label = $MarginContainer/VBoxContainer/TitreInventaire
 
+var mise_a_jour = false
 var joueur_ref = null
 
 func _ready():
@@ -40,6 +41,8 @@ func ouvrir_racine():
 
 # Fonction universelle pour remplir la grille avec un dictionnaire de slots
 func afficher_contenu(slots_a_afficher: Dictionary):
+	if mise_a_jour : return
+	mise_a_jour = true
 	# On vide la grille
 	for enfant in grille.get_children():
 		enfant.queue_free()

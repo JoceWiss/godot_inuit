@@ -49,6 +49,10 @@ var faim_actuelle: float = 100.0:
 
 func _ready():
 	faim_actuelle = faim_max
+	print("verification demarrage")
+	if objet_au_sol_scene == null:
+		print("Scene null")
+	else: print("scene chargée")
 	
 	super()
 
@@ -70,6 +74,8 @@ func _physics_process(delta: float) -> void:
 	#pv qui diminue avec la faim
 	if self.faim_actuelle <= 0:
 		self.pv_actuels += vitesse_affaiblissement*delta
+	if objet_a_ramasser != null:
+		finaliser_ramassage()
 				
 #déplacement pour ramassage d'objet	
 func aller_ramasser(objet):
@@ -80,7 +86,7 @@ func finaliser_ramassage():
 		var distance = global_position.distance_to(objet_a_ramasser.global_position)
 		if distance <= distance_interaction:
 			print("objet ramassé !")
-			var resource = objet_a_ramasser.item_data
+			var resource = objet_a_ramasser.objet_data
 			if inventaire.ajouter_objet(resource):
 				objet_a_ramasser.queue_free()
 				objet_a_ramasser = null
@@ -88,6 +94,9 @@ func finaliser_ramassage():
 			else: print("inventaire plein")
 
 func lacher_objet(objet: Objet, sac_source: Objet = null):
+	if objet_au_sol_scene == null:
+		push_error("ERREUR : Le nœud " + name + " essaie de lâcher un objet mais sa variable est vide !")
+		return
 	inventaire.retirer_objet(objet, sac_source)
 	 
 	var instance = objet_au_sol_scene.instantiate()

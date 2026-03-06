@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://djmkjiyc176p6" path="res://scenes/map.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dffjdagr2i0u7" path="res://scenes/joueur.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cglh4g044bvh2" path="res://scenes/objet_au_sol.tscn" id="3_tefeu"]
+[ext_resource type="Resource" uid="uid://dwa15fi017itk" path="res://objets/Morue Arctique.tres" id="5_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=187875290]
 script = ExtResource("1_jyhfs")
@@ -13,9 +14,13 @@ script = ExtResource("1_jyhfs")
 
 [node name="Joueur" parent="." unique_id=1584565168 instance=ExtResource("3_tbgi4")]
 z_index = 1
+objet_au_sol_scene = ExtResource("3_tefeu")
 
 [node name="objet_au_sol" parent="." unique_id=744099617 instance=ExtResource("3_tefeu")]
 position = Vector2(432, -438)
+scale = Vector2(0.2, 0.2)
+objet_data = ExtResource("5_tefeu")
+taille_voulue = 1100.0
 
 [node name="map" parent="." unique_id=1440887052 instance=ExtResource("2_jyhfs")]
 position = Vector2(292, -75)
