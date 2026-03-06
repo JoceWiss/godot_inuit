@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 func aller_ramasser(objet):
 	objet_a_ramasser= objet
 	cible = objet.global_position 
-func finaliser_ramassage(objet):
+func finaliser_ramassage():
 	if objet_a_ramasser != null	:
 		var distance = global_position.distance_to(objet_a_ramasser.global_position)
 		if distance <= distance_interaction:

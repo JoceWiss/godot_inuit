@@ -1,6 +1,7 @@
 extends Node
 class_name Inventaire
 signal donner_poids_total(valeur)
+signal inventaire_modifie(valeur)
 
 var slots_equipement : Dictionary = {
 	"tete": null,
@@ -44,6 +45,7 @@ func ajouter_objet(objet_a_ajouter : Objet) -> bool:
 		a_ete_range = true
 	if a_ete_range == true:
 		calculer_poids()
+		inventaire_modifie.emit()
 		return true
 	else : return false
 	

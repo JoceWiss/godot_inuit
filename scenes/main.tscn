@@ -4,21 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://bda31lxwko5q7" path="res://scenes/hud.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://djmkjiyc176p6" path="res://scenes/map.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dffjdagr2i0u7" path="res://scenes/joueur.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://cglh4g044bvh2" path="res://scenes/objet_au_sol.tscn" id="3_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=187875290]
 script = ExtResource("1_jyhfs")
 
 [node name="CanvasLayer" parent="." unique_id=1633036995 instance=ExtResource("1_sugp2")]
 
+[node name="Joueur" parent="." unique_id=1584565168 instance=ExtResource("3_tbgi4")]
+z_index = 1
+
+[node name="objet_au_sol" parent="." unique_id=744099617 instance=ExtResource("3_tefeu")]
+position = Vector2(432, -438)
+
 [node name="map" parent="." unique_id=1440887052 instance=ExtResource("2_jyhfs")]
 position = Vector2(292, -75)
-
-[node name="Joueur" parent="." unique_id=1584565168 instance=ExtResource("3_tbgi4")]
-constitution = 20
-dexterite = 10
-endurance = 10
-force = 10
-intelligence = 10
-sagesse = 10
-
-[node name="objet_au_sol" type="Node2D" parent="." unique_id=273030744]

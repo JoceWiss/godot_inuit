@@ -10,8 +10,8 @@ func _ready():
 		if enfant is Inventaire:
 			inventaire = enfant
 			break
-		if inventaire == null:
-			push_error("attention : le joueur n'a pas de noeud inventaire")
+	if inventaire == null:
+		push_error("attention : le joueur n'a pas de noeud inventaire")
 	
 	
 func _input(event):
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		animation_player.play("idle")
 		if objet_a_ramasser != null:
-			finaliser_ramassage(objet_a_ramasser)
+			finaliser_ramassage()
 			objet_a_ramasser = null
 	else:	
 		if not nav_agent.is_navigation_finished():

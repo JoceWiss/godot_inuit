@@ -15,13 +15,6 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(-2076, -1785, 2914, -1766, 2959, 2558, 2224.6055, 2535.3738, -2072, 2403)])
 agent_radius = 150.0
 
-[sub_resource type="Gradient" id="Gradient_gldc4"]
-offsets = PackedFloat32Array(0.9830508, 0.9957627, 1)
-colors = PackedColorArray(0.7033898, 0.7033898, 0.7033898, 1, 0, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_0cso3"]
-gradient = SubResource("Gradient_gldc4")
-
 [node name="map" type="Node2D" unique_id=1440887052]
 script = SubResource("GDScript_4xfga")
 
@@ -34,9 +27,3 @@ position = Vector2(849, 98)
 
 [node name="Node2D" parent="NavigationRegion2D" unique_id=762389476 instance=ExtResource("7_71pa8")]
 position = Vector2(-1093, -255)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1183906713]
-z_index = -3
-position = Vector2(1016.5001, 311.2502)
-scale = Vector2(30.769531, 4583.5005)
-texture = SubResource("GradientTexture1D_0cso3")

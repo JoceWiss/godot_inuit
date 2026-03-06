@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Objet" format=3 uid="uid://dwa15fi017itk"]
 
-[ext_resource type="Texture2D" uid="uid://fxxlfyidvuh2" path="res://assets/poisson.png" id="1_u6et2"]
+[ext_resource type="Texture2D" uid="uid://n4vp52ra57dc" path="res://assets/inuit test.png" id="1_u6et2"]
 [ext_resource type="Script" uid="uid://ddapcuoya7su6" path="res://scripts/objet.gd" id="1_whi7q"]
 
 [resource]
