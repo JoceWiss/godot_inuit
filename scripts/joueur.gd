@@ -70,7 +70,7 @@ func finaliser_ramassage(objet):
 	if objet_a_ramasser != null	:
 		var distance = global_position.distance_to(objet_a_ramasser.global_position)
 		if distance <= distance_interaction:
-			print("Poisson ramassé !")
+			print("objet ramassé !")
 			objet_a_ramasser.queue_free()
 			objet_a_ramasser = null
 
