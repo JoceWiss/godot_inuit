@@ -16,8 +16,8 @@ func _ready():
 	if inventaire == null:
 		push_error("attention : le joueur n'a pas de noeud inventaire")
 	
-	
-func _input(event):
+
+func _unhandled_input(event):
 	#déplacements
 	if event is  InputEventMouseButton:
 		var mod_vitesse = calculer_modificateur_vitesse()
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 	
 	#logique de déplacement
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		if objet_a_ramasser == null :
 			cible = get_global_mouse_position()
 	if nav_agent.target_position != cible:

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cglh4g044bvh2"]
 
-[ext_resource type="Script" uid="uid://cxwtgy3hjipnc" path="res://scripts/objet_au_sol.gd" id="1_yeebo"]
+[ext_resource type="Script" uid="uid://cxwtgy3hjipnc" path="res://scripts/objets/objet_au_sol.gd" id="1_yeebo"]
 [ext_resource type="Texture2D" uid="uid://bexsnvjt2qsoj" path="res://assets/icon.svg" id="3_rolce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rolce"]

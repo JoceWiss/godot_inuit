@@ -1,14 +1,17 @@
 [gd_resource type="Resource" script_class="Objet" format=3 uid="uid://dwa15fi017itk"]
 
 [ext_resource type="Texture2D" uid="uid://c1i8mq1jewut4" path="res://assets/morue_arctique.png" id="1_u6et2"]
-[ext_resource type="Script" uid="uid://ddapcuoya7su6" path="res://scripts/objet.gd" id="1_whi7q"]
+[ext_resource type="Script" uid="uid://ddapcuoya7su6" path="res://scripts/objets/objet.gd" id="2_u6et2"]
 
 [resource]
-script = ExtResource("1_whi7q")
+script = ExtResource("2_u6et2")
 nom = "Morue Artcique"
 type_objet = 4
 icone = ExtResource("1_u6et2")
 poids = 0.2
 poids_marge_aleatoire = 0.1
 valeur_nutritive = 10.0
+"peut_aller_tête" = true
+peut_aller_torse = true
+peut_aller_dos = true
 metadata/_custom_type_script = "uid://ddapcuoya7su6"

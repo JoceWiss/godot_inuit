@@ -16,11 +16,27 @@ script = ExtResource("1_jyhfs")
 z_index = 1
 objet_au_sol_scene = ExtResource("3_tefeu")
 
-[node name="objet_au_sol" parent="." unique_id=744099617 instance=ExtResource("3_tefeu")]
-position = Vector2(432, -438)
-scale = Vector2(0.2, 0.2)
-objet_data = ExtResource("5_tefeu")
-taille_voulue = 1100.0
-
 [node name="map" parent="." unique_id=1440887052 instance=ExtResource("2_jyhfs")]
 position = Vector2(292, -75)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1322450633]
+
+[node name="objet_au_sol2" parent="Node2D" unique_id=744099617 instance=ExtResource("3_tefeu")]
+position = Vector2(174, -560)
+objet_data = ExtResource("5_tefeu")
+taille_voulue = 200.0
+
+[node name="objet_au_sol2" parent="Node2D/objet_au_sol2" unique_id=381573990 instance=ExtResource("3_tefeu")]
+position = Vector2(174, -560)
+objet_data = ExtResource("5_tefeu")
+taille_voulue = 200.0
+
+[node name="objet_au_sol3" parent="Node2D" unique_id=1005130486 instance=ExtResource("3_tefeu")]
+position = Vector2(463, -237)
+objet_data = ExtResource("5_tefeu")
+taille_voulue = 200.0
+
+[node name="objet_au_sol" parent="Node2D" unique_id=883547656 instance=ExtResource("3_tefeu")]
+position = Vector2(229, 165)
+objet_data = ExtResource("5_tefeu")
+taille_voulue = 200.0
