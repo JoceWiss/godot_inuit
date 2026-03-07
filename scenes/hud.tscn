@@ -54,7 +54,7 @@ size_flags_vertical = 8
 script = ExtResource("1_oo0fn")
 
 [node name="Inventaire" type="Control" parent="." unique_id=1337128358]
-custom_minimum_size = Vector2(500, 500)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,6 +64,7 @@ grow_vertical = 2
 theme = SubResource("Theme_5ysmq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Inventaire" unique_id=1388534400]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,8 +73,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Inventaire/HBoxContainer" unique_id=1434518575]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_6fi6k")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Inventaire/HBoxContainer/PanelContainer" unique_id=1787084573]
@@ -81,6 +83,10 @@ layout_mode = 2
 
 [node name="sac" type="GridContainer" parent="Inventaire/HBoxContainer/PanelContainer/ScrollContainer" unique_id=1591631016]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
 
 [node name="paperdoll" type="Panel" parent="Inventaire/HBoxContainer" unique_id=1673406157]
 layout_mode = 2
+size_flags_horizontal = 3

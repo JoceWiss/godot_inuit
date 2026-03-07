@@ -14,7 +14,7 @@ var slots_equipement : Dictionary = {
 	"pieds": null,
 	"sac":null
 }
-
+var objet_au_sol = preload("res://scenes/objet_au_sol.tscn")
 
 var poids_total : float = 0.0 :
 	set(valeur) :
@@ -33,15 +33,22 @@ func ajouter_objet(objet_a_ajouter : Objet) -> bool:
 
 
 func retirer_objet(objet: Objet,depuis_le_sac: Objet = null):
-	if depuis_le_sac:
-		depuis_le_sac.contenu.erase(objet)
+	var copie_objet = objet.duplicate()
+
+	if slots_sac.has(objet):
+		slots_sac.erase(objet)
+	
 	else:
 		for slot in slots_equipement:
 			if slots_equipement[slot] == objet:
 				slots_equipement[slot] = null
 				break
 	calculer_poids()
-	
+	inventaire_modifie.emit()
+	var nouveau_drop = objet_au_sol.instantiate()
+	nouveau_drop.objet_data = copie_objet
+	nouveau_drop.global_position = 	get_parent().global_position
+	get_tree().current_scene.add_child(nouveau_drop)
 
 func calculer_poids() -> float:
 	var cumul : float = 0.0

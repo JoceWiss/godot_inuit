@@ -17,6 +17,7 @@ signal capacite_emport_mise_a_jour(valeur)
 @onready var nav_agent = $NavigationAgent2D
 
 #zoom
+
 @onready var camera = $Camera2D
 @onready var animation_player = $Sprite2D/AnimationPlayer
 @onready var sprite_2d = $Sprite2D
@@ -27,10 +28,9 @@ signal capacite_emport_mise_a_jour(valeur)
 @export var orientation : int
 
 @export var objet_au_sol_scene : PackedScene
+@onready var inventaire_manager: Inventaire = $inventaire
 
-var inventaire : Inventaire
-
-
+@onready var inventaire = $inventaire
 #Ralentissement
 var cible = Vector2.ZERO #l'endroit ou on veut aller
 var vitesse_actuelle = 400.0 #vtesse en cours
@@ -99,7 +99,7 @@ func finaliser_ramassage():
 				objet_a_ramasser = null
 				cible = global_position
 			else: print("inventaire plein")
-
+			
 func lacher_objet(objet: Objet, sac_source: Objet = null):
 	if objet_au_sol_scene == null:
 		push_error("ERREUR : Le nœud " + name + " essaie de lâcher un objet mais sa variable est vide !")
