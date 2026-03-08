@@ -19,13 +19,22 @@ func _ready():
 
 func _unhandled_input(event):
 	#déplacements
+	var distance_cible = global_position.distance_to(cible)
+	if distance_cible > distance_interaction :
+		if vitesse_actuelle > vitesse_marche :
+			animation_player.play("course")
+		else: 
+			animation_player.play("marche")
+	
 	if event is  InputEventMouseButton:
 		var mod_vitesse = calculer_modificateur_vitesse()
 		print(mod_vitesse)
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed : 
 			cible = get_global_mouse_position()
+			nav_agent.target_position = cible
 			if event.double_click:
 				vitesse_actuelle = vitesse_course * mod_vitesse
+			
 
 			else : 
 				vitesse_actuelle = vitesse_marche * mod_vitesse
@@ -42,12 +51,8 @@ func _unhandled_input(event):
 func _physics_process(delta: float) -> void:
 	super(delta)
 	
-	#logique de déplacement
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-		if objet_a_ramasser == null :
-			cible = get_global_mouse_position()
-	if nav_agent.target_position != cible:
-		nav_agent.target_position = cible
+	#animation
+
 	
 	#Pathfinding
 	var distance_a_la_cible = global_position.distance_to(cible)

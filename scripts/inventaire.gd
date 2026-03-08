@@ -28,6 +28,7 @@ func ajouter_objet(objet_a_ajouter : Objet) -> bool:
 	slots_sac.append(copie)
 	calculer_poids()
 	inventaire_modifie.emit()
+	print("inventaire modifié message emis")
 	return true
 
 

@@ -10,9 +10,9 @@ bg_color = Color(0.9411765, 0.16862746, 0.0627451, 1)
 [sub_resource type="Theme" id="Theme_5ysmq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fi6k"]
-bg_color = Color(0.5641582, 0.703577, 1, 1)
+bg_color = Color(0.5647059, 0.7019608, 1, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=1633036995]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1633036995 groups=["UI"]]
 script = ExtResource("1_5ysmq")
 
 [node name="HUD" type="Control" parent="." unique_id=1538291988]
@@ -63,6 +63,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_5ysmq")
 
+[node name="MenuContextuel" type="PopupMenu" parent="Inventaire" unique_id=1496233309]
+unique_name_in_owner = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+item_count = 2
+item_0/text = "Utiliser"
+item_0/id = 0
+item_1/text = "Jeter"
+item_1/id = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Inventaire" unique_id=1388534400]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
@@ -90,3 +99,5 @@ columns = 5
 [node name="paperdoll" type="Panel" parent="Inventaire/HBoxContainer" unique_id=1673406157]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[connection signal="id_pressed" from="Inventaire/MenuContextuel" to="." method="_on_menu_contextuel_id_pressed"]

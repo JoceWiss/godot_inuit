@@ -64,11 +64,7 @@ func calculer_modificateur_vitesse() -> float :
 	
 
 func _physics_process(delta: float) -> void:
-	if vitesse_actuelle >= vitesse_marche:
-		animation_player.play("course")
-	if vitesse_actuelle <= vitesse_marche:
-		animation_player.play("marche")
-		#système de faim
+
 	if velocity.length() < 5:
 		self.faim_actuelle += vitesse_faim*delta
 		
